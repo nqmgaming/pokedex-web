@@ -1,0 +1,15 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "app.pwhs.pokemon",
+            "sha256_cert_fingerprints": [
+                "TODO: Thêm SHA-256 fingerprint của app signing key",
+                "Lấy bằng lệnh: keytool -list -v -keystore your-keystore.jks"
+            ]
+        }
+    }
+]

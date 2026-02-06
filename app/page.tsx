@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { Suspense, useEffect, useState, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import type { Pokemon, PokemonListResponse } from './types';
@@ -19,14 +19,10 @@ const TOTAL_POKEMON = 1025; // Total Pokemon in API
 const TOTAL_PAGES = Math.ceil(TOTAL_POKEMON / POKEMON_PER_PAGE);
 
 /**
- * Home Page - Pokemon List with Pagination
- * Features:
- * - Fetch Pokemon data from PokéAPI
- * - Traditional pagination with page numbers
- * - URL-based page tracking
- * - Particle background effect
+ * Home Page Content - Contains the actual page logic
+ * Separated to wrap useSearchParams in Suspense
  */
-export default function Home() {
+function HomeContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -131,10 +127,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.page}>
-      {/* Particle Background */}
-      <ParticleBackground />
-
+    <>
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.headerContent}>
@@ -240,6 +233,59 @@ export default function Home() {
           • Pokémon và các nhân vật liên quan là thương hiệu của Nintendo
         </p>
       </footer>
+    </>
+  );
+}
+
+/**
+ * Loading fallback for Suspense
+ */
+function LoadingFallback() {
+  return (
+    <div className={styles.page}>
+      <header className={styles.header}>
+        <div className={styles.headerContent}>
+          <div className={styles.logo}>
+            <svg
+              className={styles.pokeballIcon}
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="50" cy="50" r="48" fill="#DC0A2D" stroke="#1D1D1D" strokeWidth="4" />
+              <rect x="0" y="46" width="100" height="8" fill="#1D1D1D" />
+              <circle cx="50" cy="50" r="48" fill="white" clipPath="url(#bottom-loading)" />
+              <defs>
+                <clipPath id="bottom-loading">
+                  <rect x="0" y="50" width="100" height="50" />
+                </clipPath>
+              </defs>
+              <circle cx="50" cy="50" r="16" fill="white" stroke="#1D1D1D" strokeWidth="4" />
+              <circle cx="50" cy="50" r="8" fill="#1D1D1D" />
+            </svg>
+            <div>
+              <h1 className={styles.title}>Pokédex</h1>
+              <p className={styles.subtitle}>Đang tải...</p>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  );
+}
+
+/**
+ * Home Page - Pokemon List with Pagination
+ * Wrapped in Suspense for useSearchParams
+ */
+export default function Home() {
+  return (
+    <div className={styles.page}>
+      {/* Particle Background */}
+      <ParticleBackground />
+
+      <Suspense fallback={<LoadingFallback />}>
+        <HomeContent />
+      </Suspense>
     </div>
   );
 }
