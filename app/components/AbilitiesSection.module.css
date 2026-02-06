@@ -1,0 +1,103 @@
+/* Abilities Section Styles */
+
+.container {
+    margin-top: var(--space-6);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.abilities {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.ability {
+    padding: var(--space-4);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 2px solid transparent;
+}
+
+.ability:hover {
+    border-color: var(--poke-blue);
+    background: white;
+}
+
+.ability.hidden {
+    background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
+}
+
+.ability.hidden:hover {
+    border-color: #A855F7;
+}
+
+.abilityHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.abilityName {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: capitalize;
+}
+
+.hiddenBadge {
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #A855F7;
+    color: white;
+    padding: 2px 6px;
+    border-radius: var(--border-radius-full);
+    letter-spacing: 0.5px;
+}
+
+.chevron {
+    margin-left: auto;
+    color: var(--text-secondary);
+    transition: transform var(--transition-fast);
+}
+
+.chevron.expanded {
+    transform: rotate(180deg);
+}
+
+.shortEffect {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: var(--space-2);
+    line-height: 1.5;
+}
+
+.fullEffect {
+    overflow: hidden;
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.fullEffect p {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--space-4);
+}

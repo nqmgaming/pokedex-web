@@ -1,0 +1,166 @@
+/* Sprite Gallery Styles */
+
+.container {
+    margin-top: var(--space-6);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.count {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.filterButton {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filterButton:hover {
+    border-color: var(--poke-yellow);
+    color: var(--poke-yellow-dark);
+}
+
+.filterButton.active {
+    background: var(--poke-yellow);
+    color: #1D1D1D;
+    border-color: var(--poke-yellow);
+}
+
+/* Sprite Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--space-3);
+}
+
+.spriteCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.spriteCard:hover {
+    background: white;
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+}
+
+.spriteImage {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spriteLabel {
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: var(--space-4);
+}
+
+.lightboxContent {
+    position: relative;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 32px;
+    height: 32px;
+    background: var(--bg-primary);
+    border: none;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.closeButton:hover {
+    background: var(--poke-red);
+    color: white;
+}
+
+.lightboxLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .spriteImage {
+        width: 64px;
+        height: 64px;
+    }
+
+    .lightboxContent {
+        padding: var(--space-6);
+    }
+}

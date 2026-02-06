@@ -1,0 +1,108 @@
+/* Species Info Styles */
+
+.container {
+    padding: var(--space-4) 0;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    justify-content: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.legendary {
+    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+}
+
+.badge.mythical {
+    background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+}
+
+.badge.baby {
+    background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+}
+
+.genus {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: var(--space-3);
+    font-style: italic;
+}
+
+.flavorText {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.6;
+    padding: var(--space-4);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--space-4);
+    border-left: 4px solid var(--poke-red);
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.infoValue {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: capitalize;
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--space-4);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .infoGrid {
+        grid-template-columns: 1fr;
+    }
+}

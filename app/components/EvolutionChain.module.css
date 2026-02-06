@@ -1,0 +1,121 @@
+/* Evolution Chain Component Styles */
+
+.container {
+    margin-top: var(--space-6);
+    padding: var(--space-6);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-5);
+    text-align: center;
+}
+
+.chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.stageWrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--text-secondary);
+    padding: 0 var(--space-2);
+}
+
+.arrowCondition {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--poke-red);
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.stageGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.stageLink {
+    text-decoration: none;
+}
+
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-3);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    border: 2px solid transparent;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.stage:hover {
+    border-color: var(--poke-red-light);
+    background: white;
+}
+
+.stage.current {
+    border-color: var(--poke-red);
+    background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+}
+
+.stageName {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: capitalize;
+    margin-top: var(--space-1);
+}
+
+.stageId {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--space-4);
+}
+
+.noEvolution {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .chain {
+        flex-direction: column;
+    }
+
+    .stageWrapper {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+        padding: var(--space-2) 0;
+    }
+}

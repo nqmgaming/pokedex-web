@@ -1,0 +1,127 @@
+/* PokemonList Grid Styles */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-6);
+    padding: var(--space-4);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Responsive Grid */
+@media (min-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-8);
+        padding: var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--space-4);
+}
+
+.pokeball {
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingText {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* Error State */
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--space-4);
+    text-align: center;
+    padding: var(--space-6);
+}
+
+.errorIcon {
+    font-size: 3rem;
+}
+
+.errorText {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--poke-red);
+}
+
+.retryButton {
+    background: var(--poke-red);
+    color: white;
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--border-radius-full);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.retryButton:hover {
+    background: var(--poke-red-dark);
+    transform: scale(1.05);
+}
+
+/* Empty State */
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    gap: var(--space-4);
+    text-align: center;
+}
+
+.emptyText {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .pokeball {
+        animation: none;
+    }
+}

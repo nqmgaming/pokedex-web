@@ -1,0 +1,263 @@
+/* Pokemon Detail Page Styles */
+
+.page {
+    min-height: 100vh;
+    position: relative;
+    padding: var(--space-6);
+}
+
+/* Back Button */
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: var(--bg-secondary);
+    border: 2px solid var(--poke-red);
+    border-radius: var(--border-radius-full);
+    color: var(--poke-red);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-bottom: var(--space-6);
+}
+
+.backButton:hover {
+    background: var(--poke-red);
+    color: white;
+}
+
+/* Detail Card */
+.card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-large);
+    overflow: hidden;
+}
+
+/* Card Header */
+.cardHeader {
+    background: linear-gradient(135deg, var(--poke-red-light) 0%, var(--poke-red) 100%);
+    padding: var(--space-8);
+    text-align: center;
+    position: relative;
+}
+
+.idBadge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: rgba(255, 255, 255, 0.9);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-full);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Sprite Animation Container */
+.spriteContainer {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.sprite {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+    image-rendering: pixelated;
+}
+
+/* Card Body */
+.cardBody {
+    padding: var(--space-6);
+}
+
+.name {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+/* Types */
+.types {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+}
+
+.typeBadge {
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--border-radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Info Grid */
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.infoItem {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+}
+
+.infoLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: var(--space-1);
+}
+
+.infoValue {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Stats Section */
+.statsTitle {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.statRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    width: 45px;
+    flex-shrink: 0;
+}
+
+.statBarContainer {
+    flex: 1;
+    height: 12px;
+    background: #E5E7EB;
+    border-radius: var(--border-radius-full);
+    overflow: hidden;
+}
+
+.statBar {
+    height: 100%;
+    border-radius: var(--border-radius-full);
+}
+
+.statValue {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    width: 35px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Stat Bar Colors */
+.statBar.hp {
+    background: linear-gradient(90deg, #4ADE80, #22C55E);
+}
+
+.statBar.attack {
+    background: linear-gradient(90deg, #F97316, #EA580C);
+}
+
+.statBar.defense {
+    background: linear-gradient(90deg, #3B82F6, #2563EB);
+}
+
+.statBar.specialAttack {
+    background: linear-gradient(90deg, #8B5CF6, #7C3AED);
+}
+
+.statBar.specialDefense {
+    background: linear-gradient(90deg, #EC4899, #DB2777);
+}
+
+.statBar.speed {
+    background: linear-gradient(90deg, #F59E0B, #D97706);
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: var(--space-4);
+}
+
+.loadingText {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* Error State */
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: var(--space-4);
+    text-align: center;
+}
+
+.errorText {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--poke-red);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .page {
+        padding: var(--space-4);
+    }
+
+    .name {
+        font-size: 1.5rem;
+    }
+
+    .spriteContainer {
+        width: 150px;
+        height: 150px;
+    }
+}
